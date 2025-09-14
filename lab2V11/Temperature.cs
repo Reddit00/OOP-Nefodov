@@ -18,7 +18,7 @@ class Temperature
             if (i == 0) Celsius = value;
             else if (i == 1) Celsius = (value - 32) * 5 / 9;
         }
-    }r (Temperature a, Temperature b) => a.Celsius > b.Celsius;
+    public static bool operator >(Temperature a, Temperature b) => a.Celsius > b.Celsius;
     public static bool operator <(Temperature a, Temperature b) => a.Celsius < b.Celsius;
     public static bool operator ==(Temperature a, Temperature b) => a.Celsius == b.Celsius;
     public static bool operator !=(Temperature a, Temperature b) => a.Celsius != b.Celsius;
