@@ -17,4 +17,8 @@ class Instrument
     {
         return 5;
     }
+    public int GetTotalTime()
+    {
+        return GetDuration() * GetCount();
+    }
 }`

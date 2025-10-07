@@ -9,17 +9,14 @@
             new Guitar("Gibson"),
             new Piano("Casio")
         };
-
         int total = 0;
-
         foreach (var ins in instruments)
         {
             ins.Play();
-            int time = ins.GetDuration() * ins.GetCount();
+            int time = ins.GetTotalTime();
             Console.WriteLine($"Час: {time} хв\n");
             total += time;
         }
-
         Console.WriteLine($"Загальна тривалість концерту: {total} хв");
     }
 }
