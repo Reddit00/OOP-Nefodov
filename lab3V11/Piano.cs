@@ -1,16 +1,8 @@
 class Piano : Instrument
 {
-    public Piano(string name) : base(name) { }
+    public Piano(string compositionName, int sec) : base(compositionName, sec) { }
     public override void Play()
     {
-        Console.WriteLine($"Піаніно {name} грає.");
-    }
-    public override int GetDuration()
-    {
-        return 5;
-    }
-    public override int GetCount()
-    {
-        return 4;
+        Console.WriteLine($"Піаніно грає \"{compositionName}\" ({sec} сек.)");
     }
 }

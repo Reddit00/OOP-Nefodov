@@ -1,24 +1,19 @@
-class Instrument
+abstract class Instrument
 {
-    protected string name;
-    public Instrument(string name)
+    protected string compositionName;
+    protected int sec;
+    public Instrument(string compositionName, int sec)
     {
-        this.name = name;
+        this.compositionName = compositionName;
+        this.sec = sec;
     }
-    public virtual void Play()
+    public abstract void Play();
+    public int GetDuration()
     {
-        Console.WriteLine($"Грає інструмент: {name}");
+        return sec;
     }
-    public virtual int GetDuration()
+    ~Instrument()
     {
-        return 3;
+        Console.WriteLine($"Інструмент з композицією \"{compositionName}\" знищено.");
     }
-    public virtual int GetCount()
-    {
-        return 5;
-    }
-    public int GetTotalTime()
-    {
-        return GetDuration() * GetCount();
-    }
-}`
+}
