@@ -53,6 +53,35 @@ class Program
             repo.Add(new PriceList(1, "Ковбаса", 88));
             repo.Add(new PriceList(2, "Філе куряче", 18));
             repo.Add(new PriceList(3, "Сметана", 90));
+            
+            var cart = new List<CartItem>
+            {
+                new CartItem(repo.GetAll()[0], 2),
+                new CartItem(repo.GetAll()[1], 1)
+            }
+            decimal sum = cart.Sum(i=> i.GetTotal());
+            decimal discount = sum * 0,07m;
+            decimal final = sum - discount; 
+            decimal avg = cart.Averege(i => i.Product.Price);
+            
+            Console.WriteLine("Сума: " + sum);
+            Console.WriteLine("Знижка 7%: -" + discount);
+            Console.WriteLine("До сплати:" + final);
+            Console.WriteLine("Середня ціна: " + avg);
+
+            int codeToFind = 5;
+            var found = repo.GetAll().FirstOrDefault(p => p.Code ==codeToFind);
+            if (found == null)
+                throw new NotFoundExpention($"Товар за кодом {codeToFind} не знайдено");
         }        
+        catch (InvalidPriceExpention ex)
+        {
+        Console.WriteLine("Помилка: " + ex.Message); 
+        }
+        catch (NotFoundExpention ex)
+        {
+        Console.WriteLine("Помилка: " + ex.Message); 
+        }
+        Console.WriteLine("\nГотово");
     }
 }
