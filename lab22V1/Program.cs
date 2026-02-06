@@ -1,54 +1,54 @@
-﻿using System;
-//BAD LSP
-class Rectangle
-{
-    public virtual int Width { get; set; }
-    public virtual int Height { get; set; }
+﻿// using System;
+// //BAD LSP
+// class Rectangle
+// {
+//     public virtual int Width { get; set; }
+//     public virtual int Height { get; set; }
 
-    public int GetArea()
-    {
-        return Width * Height;
-    }
-}
+//     public int GetArea()
+//     {
+//         return Width * Height;
+//     }
+// }
 
-// Похідний клас Square
-// Порушує контракт Rectangle
-// Зміна однієї сторони автоматично змінює іншу
-class Square : Rectangle
-{
-    public override int Width
-    {
-        get => base.Width;
-        set
-        {
-            base.Width = value;
-            base.Height = value;
-        }
-    }
-    public override int Height
-    {
-        get => base.Height;
-        set
-        {
-            base.Width = value;
-            base.Height = value;
-        }
-    }
-}
-// Клієнтський метод, який працює з Rectangle
-// Очікує, що Width і Height незалежні
-static class BadLspClient
-{
-    public static void ResizeRectangle(Rectangle rectangle)
-    {
-        rectangle.Width = 5;
-        rectangle.Height = 10;
+// // Похідний клас Square
+// // Порушує контракт Rectangle
+// // Зміна однієї сторони автоматично змінює іншу
+// class Square : Rectangle
+// {
+//     public override int Width
+//     {
+//         get => base.Width;
+//         set
+//         {
+//             base.Width = value;
+//             base.Height = value;
+//         }
+//     }
+//     public override int Height
+//     {
+//         get => base.Height;
+//         set
+//         {
+//             base.Width = value;
+//             base.Height = value;
+//         }
+//     }
+// }
+// // Клієнтський метод, який працює з Rectangle
+// // Очікує, що Width і Height незалежні
+// static class BadLspClient
+// {
+//     public static void ResizeRectangle(Rectangle rectangle)
+//     {
+//         rectangle.Width = 5;
+//         rectangle.Height = 10;
 
-        Console.WriteLine("Expected area: 50");
-        Console.WriteLine($"Actual area: {rectangle.GetArea()}");
-        Console.WriteLine();
-    }
-}
+//         Console.WriteLine("Expected area: 50");
+//         Console.WriteLine($"Actual area: {rectangle.GetArea()}");
+//         Console.WriteLine();
+//     }
+// }
 // GOOD LSP
 // Спільний інтерфейс для геометричних фігур
 interface IShape
