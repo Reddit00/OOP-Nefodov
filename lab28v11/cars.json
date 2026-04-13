@@ -1,0 +1,28 @@
+[
+  {
+    "Id": 1,
+    "Model": "Model S",
+    "Year": 2023,
+    "Brand": {
+      "Name": "Tesla",
+      "Country": "USA"
+    },
+    "CarEngine": {
+      "Volume": 0,
+      "FuelType": "Electric"
+    }
+  },
+  {
+    "Id": 2,
+    "Model": "Model 3",
+    "Year": 2022,
+    "Brand": {
+      "Name": "Tesla",
+      "Country": "USA"
+    },
+    "CarEngine": {
+      "Volume": 0,
+      "FuelType": "Electric"
+    }
+  }
+]
